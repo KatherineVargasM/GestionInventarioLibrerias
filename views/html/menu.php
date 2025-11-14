@@ -14,7 +14,7 @@
 
     <ul class="menu-inner py-1">
         <li class="menu-item active">
-            <a href="../home.php" class="menu-link">
+            <a href="dashboard_content.php" target="base" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
@@ -22,27 +22,27 @@
 
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-book-bookmark"></i> <div data-i18n="Layouts">Gestión Librería</div>
+                <i class="menu-icon tf-icons bx bx-book-bookmark"></i>
+                <div data-i18n="Layouts">Gestión Librería</div>
             </a>
 
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="../autores/autores.views.php" class="menu-link">
+                    <a href="autores/autores.views.php" target="base" class="menu-link">
                         <div data-i18n="Blank">Autores</div>
                     </a>
                 </li>
                  <li class="menu-item">
-                    <a href="../libros/libros.views.php" class="menu-link">
+                    <a href="libros/libros.views.php" target="base" class="menu-link">
                         <div data-i18n="Blank">Libros</div>
                     </a>
                 </li>
                  <li class="menu-item">
-                    <a href="../inventario/inventario.views.php" class="menu-link">
+                    <a href="inventario/inventario.views.php" target="base" class="menu-link">
                         <div data-i18n="Blank">Inventario</div>
                     </a>
                 </li>
             </ul>
         </li>
-
-        </ul>
+    </ul>
 </aside>

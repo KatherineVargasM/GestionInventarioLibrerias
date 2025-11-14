@@ -1,5 +1,4 @@
 <?php 
-
 require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/config/sesiones.php'); 
 ?>
 <!DOCTYPE html>
