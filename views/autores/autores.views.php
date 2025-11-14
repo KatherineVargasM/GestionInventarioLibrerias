@@ -1,4 +1,5 @@
-<?php require_once('../html/head2.php'); ?>
+<?php require_once('../html/head.php');
+?>
 
 <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Librería /</span> Autores</h4>
 
@@ -12,7 +13,8 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Nombre y Apellido</th> <th>Nacionalidad</th>
+                    <th>Nombre y Apellido</th> 
+                    <th>Nacionalidad</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -34,7 +36,8 @@
                 <input type="hidden" name="id_autor" id="id_autor">
                 <div class="modal-body">
                     <div class="form-group mb-3">
-                        <label for="nombre_apellido">Nombre y Apellido</label> <input type="text" name="nombre_apellido" id="nombre_apellido" class="form-control" placeholder="Ej: Jorge Luis Borges" required>
+                        <label for="nombre_apellido">Nombre y Apellido</label> 
+                        <input type="text" name="nombre_apellido" id="nombre_apellido" class="form-control" placeholder="Ej: Jorge Luis Borges" required>
                     </div>
                     <div class="form-group">
                         <label for="nacionalidad">Nacionalidad</label>
@@ -50,5 +53,5 @@
     </div>
 </div>
 
-<?php require_once('../html/scripts2.php'); ?>
+<?php require_once('../html/scripts.php');?>
 <script src="./autores.js"></script>

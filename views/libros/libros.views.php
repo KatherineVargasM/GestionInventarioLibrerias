@@ -1,4 +1,4 @@
-<?php require_once('../html/head2.php'); ?>
+<?php require_once('../html/head.php'); ?>
 
 <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Librería /</span> Libros</h4>
 
@@ -14,7 +14,8 @@
                     <th>#</th>
                     <th>Título</th>
                     <th>ISBN</th>
-                    <th>Año</th> <th>Autor</th>
+                    <th>Año</th> 
+                    <th>Autor</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -62,5 +63,5 @@
     </div>
 </div>
 
-<?php require_once('../html/scripts2.php'); ?>
+<?php require_once('../html/scripts.php'); ?>
 <script src="./libros.js"></script>

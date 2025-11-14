@@ -1,4 +1,4 @@
-<?php require_once('../html/head2.php'); ?>
+<?php require_once('../html/head.php'); ?>
 
 <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Librería /</span> Inventario</h4>
 
@@ -66,5 +66,5 @@
     </div>
 </div>
 
-<?php require_once('../html/scripts2.php'); ?>
+<?php require_once('../html/scripts.php'); ?>
 <script src="./inventario.js"></script>
