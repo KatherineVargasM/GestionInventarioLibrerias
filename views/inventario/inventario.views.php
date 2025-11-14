@@ -1,27 +1,33 @@
 <?php 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/config/sesiones.php'); ?>
+require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/config/sesiones.php'); 
+require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/views/html/head.php'); 
+?>
 <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Librería /</span> Inventario</h4>
 
 <div class="card">
-    <button type="button" class="btn btn-outline-primary" onclick="cargarLibrosSinInv();" data-bs-toggle="modal" data-bs-target="#ModalInventario">
-      Añadir Stock a Libro
-    </button>
     <h5 class="card-header">Stock de Libros</h5>
-    <div class="table-responsive text-nowrap">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Título</th>
-                    <th>Autor</th>
-                    <th>Stock</th>
-                    <th>Ubicación</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody class="table-border-bottom-0" id="ListaInventario">
-            </tbody>
-        </table>
+    <div class="card-body">
+        
+        <button type="button" class="btn btn-outline-primary mb-3" onclick="cargarLibrosSinInv();" data-bs-toggle="modal" data-bs-target="#ModalInventario">
+            Añadir Stock a Libro
+        </button>
+        
+        <div class="table-responsive text-nowrap">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>Stock</th>
+                        <th>Ubicación</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0" id="ListaInventario">
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
@@ -44,8 +50,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/config/sesiones.p
                     </div>
                     
                     <div id="divInfoLibro" class="form-group mb-3" style="display:none;">
-                         <label>Libro</label>
-                         <input type="text" id="nombre_libro_editar" class="form-control" disabled>
+                            <label>Libro</label>
+                            <input type="text" id="nombre_libro_editar" class="form-control" disabled>
                     </div>
 
                     <div class="form-group mb-3">

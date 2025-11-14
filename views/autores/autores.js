@@ -49,8 +49,8 @@ var guardarEditarAutor = (e) => {
     cache: false,
     success: (respuesta) => {
       
-
       if (respuesta.includes("ok")) {
+        limpiarCajasAutor();
 
         Swal.fire({
           title: '¡Guardado!',
@@ -60,7 +60,6 @@ var guardarEditarAutor = (e) => {
         }).then((result) => {
           if (result.isConfirmed) {
             cargaListaAutores();
-            limpiarCajasAutor();
           }
         });
 
@@ -96,7 +95,6 @@ var eliminar = (id_autor) => {
     if (result.isConfirmed) {
       $.post(rutaAutores + "eliminar", { id_autor: id_autor }, (respuesta) => {
         
-
         if (respuesta.includes("ok")) {
           Swal.fire('¡Borrado!', 'El autor ha sido eliminado.', 'success');
           cargaListaAutores();

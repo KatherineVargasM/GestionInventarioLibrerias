@@ -1,12 +1,14 @@
 <?php 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/config/sesiones.php'); ?>
+require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/config/sesiones.php'); 
+require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/views/html/head.php'); 
+?>
 <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Librería /</span> Autores</h4>
 
 <div class="card">
     <h5 class="card-header">Lista de Autores</h5>
     <div class="card-body">
         
-        <button type"button" class="btn btn-outline-primary mb-3" data-bs-toggle="modal" data-bs-target="#ModalAutores">
+        <button type="button" class="btn btn-outline-primary mb-3" data-bs-toggle="modal" data-bs-target="#ModalAutores">
             Nuevo Autor
         </button>
 

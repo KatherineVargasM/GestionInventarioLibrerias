@@ -6,7 +6,6 @@ function init() {
 
 const rutaInventario = "../../controllers/inventario.controllers.php?op=";
 
-// LÍNEA CORREGIDA: $().ready por $()
 $(() => {
   cargaListaInventario();
 });
@@ -51,12 +50,10 @@ var guardarEditarInventario = (e) => {
     contentType: false,
     cache: false,
     success: (respuesta) => {
-      
-      // LÍNEA CORREGIDA: Sacamos el JSON.parse()
-      // respuesta = JSON.parse(respuesta);
-
-      // LÍNEA CORREGIDA: Usamos .includes("ok") igual que en autores.js
+ 
       if (respuesta.includes("ok")) {
+
+        limpiarCajasInventario();
 
         Swal.fire({
           title: '¡Guardado!',
@@ -66,12 +63,11 @@ var guardarEditarInventario = (e) => {
         }).then((result) => {
           if (result.isConfirmed) {
             cargaListaInventario();
-            limpiarCajasInventario();
           }
         });
 
       } else {
-        // LÍNEA CORREGIDA: Mostramos la respuesta del servidor en el error
+
         Swal.fire('Error', 'Respuesta del servidor: ' + respuesta, 'error');
       }
     },

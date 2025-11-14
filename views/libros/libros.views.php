@@ -1,27 +1,33 @@
 <?php 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/config/sesiones.php'); ?>
+require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/config/sesiones.php'); 
+require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/views/html/head.php'); 
+?>
 <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Librería /</span> Libros</h4>
 
 <div class="card">
-    <button type="button" class="btn btn-outline-primary" onclick="cargarAutores();" data-bs-toggle="modal" data-bs-target="#ModalLibros">
-      Nuevo Libro
-    </button>
     <h5 class="card-header">Lista de Libros</h5>
-    <div class="table-responsive text-nowrap">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Título</th>
-                    <th>ISBN</th>
-                    <th>Año</th> 
-                    <th>Autor</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody class="table-border-bottom-0" id="ListaLibros">
-            </tbody>
-        </table>
+    <div class="card-body"> 
+        
+        <button type="button" class="btn btn-outline-primary mb-3" onclick="cargarAutores();" data-bs-toggle="modal" data-bs-target="#ModalLibros">
+            Nuevo Libro
+        </button>
+        
+        <div class="table-responsive text-nowrap">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Título</th>
+                        <th>ISBN</th>
+                        <th>Año</th> 
+                        <th>Autor</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0" id="ListaLibros">
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

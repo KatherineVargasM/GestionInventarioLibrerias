@@ -52,8 +52,9 @@ var guardarEditarLibro = (e) => {
     cache: false,
     success: (respuesta) => {
       
-
       if (respuesta.includes("ok")) {
+
+        limpiarCajasLibro(); 
 
         Swal.fire({
           title: '¡Guardado!',
@@ -61,9 +62,9 @@ var guardarEditarLibro = (e) => {
           icon: 'success',
           confirmButtonText: 'OK'
         }).then((result) => {
-          if (result.isConfirmed) {
+          if (result.isConfirmed) 
+          {
             cargaListaLibros();
-            limpiarCajasLibro();
           }
         });
 
