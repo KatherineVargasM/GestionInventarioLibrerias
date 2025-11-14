@@ -1,12 +1,12 @@
 function init() {
   $("#form_autores").on("submit", (e) => {
-    guardarEditarAutor(e);
+    guardarEditarAutor(e); 
   });
 }
 const rutaAutores = "../../controllers/autores.controllers.php?op=";
 
 $().ready(() => {
-  cargaListaAutores();
+  cargaListaAutores(); 
 });
 
 var cargaListaAutores = () => {
@@ -16,7 +16,8 @@ var cargaListaAutores = () => {
     $.each(ListaAutores, (index, autor) => {
       html += `<tr>
             <td>${index + 1}</td>
-            <td>${autor.nombre_apellido}</td> <td>${autor.nacionalidad}</td>
+            <td>${autor.nombre_apellido}</td> 
+            <td>${autor.nacionalidad}</td>
             <td>
               <button class='btn btn-sm btn-primary' data-bs-toggle="modal" data-bs-target="#ModalAutores" onclick='uno(${autor.id_autor})'>Editar</button>
               <button class='btn btn-sm btn-danger' onclick='eliminar(${autor.id_autor})'>Eliminar</button>
@@ -48,10 +49,21 @@ var guardarEditarAutor = (e) => {
     cache: false,
     success: (respuesta) => {
       respuesta = JSON.parse(respuesta);
+
       if (respuesta == "ok") {
-        Swal.fire('¡Guardado!', 'El autor se guardó con éxito.', 'success');
-        cargaListaAutores();
-        limpiarCajasAutor();
+
+        Swal.fire({
+          title: '¡Guardado!',
+          text: 'El autor se guardó con éxito.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            cargaListaAutores();
+            limpiarCajasAutor();
+          }
+        });
+
       } else {
         Swal.fire('Error', 'Hubo un problema al guardar.', 'error');
       }
@@ -64,7 +76,7 @@ var uno = (id_autor) => {
   $.post(rutaAutores + "uno", { id_autor: id_autor }, (autor) => {
     autor = JSON.parse(autor);
     $("#id_autor").val(autor.id_autor);
-    $("#nombre_apellido").val(autor.nombre_apellido);
+    $("#nombre_apellido").val(autor.nombre_apellido); 
     $("#nacionalidad").val(autor.nacionalidad);
   });
 };
@@ -85,7 +97,7 @@ var eliminar = (id_autor) => {
         respuesta = JSON.parse(respuesta);
         if (respuesta == "ok") {
           Swal.fire('¡Borrado!', 'El autor ha sido eliminado.', 'success');
-          cargaListaAutores();
+          cargaListaAutores(); 
         } else {
           Swal.fire('Error', 'No se pudo eliminar.', 'error');
         }
@@ -96,7 +108,7 @@ var eliminar = (id_autor) => {
 
 var limpiarCajasAutor = () => {
   $("#id_autor").val("");
-  $("#nombre_apellido").val("");
+  $("#nombre_apellido").val(""); 
   $("#nacionalidad").val("");
   $("#tituloModalAutor").html("Nuevo Autor");
   $("#ModalAutores").modal("hide");

@@ -1,5 +1,5 @@
-<?php require_once('../html/head.php'); ?>
-
+<?php 
+require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/config/sesiones.php'); ?>
 <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Librería /</span> Libros</h4>
 
 <div class="card">
@@ -63,5 +63,5 @@
     </div>
 </div>
 
-<?php require_once('../html/scripts.php'); ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/views/html/scripts.php'); ?>
 <script src="./libros.js"></script>
