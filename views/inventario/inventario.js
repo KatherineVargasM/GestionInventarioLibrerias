@@ -1,13 +1,14 @@
 function init() {
   $("#form_inventario").on("submit", (e) => {
-    guardarEditarInventario(e); 
+    guardarEditarInventario(e);
   });
 }
 
 const rutaInventario = "../../controllers/inventario.controllers.php?op=";
 
-$().ready(() => {
-  cargaListaInventario(); 
+// LÍNEA CORREGIDA: $().ready por $()
+$(() => {
+  cargaListaInventario();
 });
 
 var cargaListaInventario = () => {
@@ -37,9 +38,9 @@ var guardarEditarInventario = (e) => {
   var id_inventario = $("#id_inventario").val();
 
   if (id_inventario > 0) {
-    accion = rutaInventario + "actualizar"; 
+    accion = rutaInventario + "actualizar";
   } else {
-    accion = rutaInventario + "insertar"; 
+    accion = rutaInventario + "insertar";
   }
 
   $.ajax({
@@ -50,10 +51,13 @@ var guardarEditarInventario = (e) => {
     contentType: false,
     cache: false,
     success: (respuesta) => {
-      respuesta = JSON.parse(respuesta);
+      
+      // LÍNEA CORREGIDA: Sacamos el JSON.parse()
+      // respuesta = JSON.parse(respuesta);
 
-      if (respuesta == "ok") {
-        
+      // LÍNEA CORREGIDA: Usamos .includes("ok") igual que en autores.js
+      if (respuesta.includes("ok")) {
+
         Swal.fire({
           title: '¡Guardado!',
           text: 'El inventario se actualizó con éxito.',
@@ -61,13 +65,14 @@ var guardarEditarInventario = (e) => {
           confirmButtonText: 'OK'
         }).then((result) => {
           if (result.isConfirmed) {
-            cargaListaInventario(); 
-            limpiarCajasInventario(); 
+            cargaListaInventario();
+            limpiarCajasInventario();
           }
         });
 
       } else {
-        Swal.fire('Error', 'Hubo un problema al guardar.', 'error');
+        // LÍNEA CORREGIDA: Mostramos la respuesta del servidor en el error
+        Swal.fire('Error', 'Respuesta del servidor: ' + respuesta, 'error');
       }
     },
   });
@@ -76,7 +81,7 @@ var guardarEditarInventario = (e) => {
 var uno = (id_inventario) => {
   $("#tituloModalInventario").html("Editar Stock");
   $("#divSelectLibro").hide();
-  $("#id_libro").removeAttr("required"); 
+  $("#id_libro").removeAttr("required");
   $("#divInfoLibro").show();
 
   $.post(rutaInventario + "uno", { id_inventario: id_inventario }, (item) => {
@@ -84,19 +89,19 @@ var uno = (id_inventario) => {
     $("#id_inventario").val(item.id_inventario);
     $("#stock").val(item.stock);
     $("#ubicacion").val(item.ubicacion);
-    $("#nombre_libro_editar").val(item.titulo); 
+    $("#nombre_libro_editar").val(item.titulo);
   });
 };
 
 var cargarLibrosSinInv = () => {
   $("#tituloModalInventario").html("Añadir Stock");
   $("#divSelectLibro").show();
-  $("#id_libro").attr("required", "required"); 
+  $("#id_libro").attr("required", "required");
   $("#divInfoLibro").hide();
 
   return new Promise((resolve, reject) => {
     var html = `<option value="">Seleccione un Libro</option>`;
-    $.get(rutaInventario + "librosSinInventario", (ListaLibros) => { 
+    $.get(rutaInventario + "librosSinInventario", (ListaLibros) => {
       ListaLibros = JSON.parse(ListaLibros);
       $.each(ListaLibros, (index, libro) => {
         html += `<option value="${libro.id_libro}">${libro.titulo}</option>`;

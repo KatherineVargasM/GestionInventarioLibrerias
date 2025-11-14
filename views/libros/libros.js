@@ -1,14 +1,14 @@
 function init() {
   $("#form_libros").on("submit", (e) => {
-    guardarEditarLibro(e); 
+    guardarEditarLibro(e);
   });
 }
 
 const rutaLibros = "../../controllers/libros.controllers.php?op=";
 const rutaAutores = "../../controllers/autores.controllers.php?op=";
 
-$().ready(() => {
-  cargaListaLibros(); 
+$(() => {
+  cargaListaLibros();
 });
 
 var cargaListaLibros = () => {
@@ -51,10 +51,10 @@ var guardarEditarLibro = (e) => {
     contentType: false,
     cache: false,
     success: (respuesta) => {
-      respuesta = JSON.parse(respuesta);
+      
 
-      if (respuesta == "ok") {
-        
+      if (respuesta.includes("ok")) {
+
         Swal.fire({
           title: '¡Guardado!',
           text: 'El libro se guardó con éxito.',
@@ -62,29 +62,30 @@ var guardarEditarLibro = (e) => {
           confirmButtonText: 'OK'
         }).then((result) => {
           if (result.isConfirmed) {
-            cargaListaLibros(); 
-            limpiarCajasLibro(); 
+            cargaListaLibros();
+            limpiarCajasLibro();
           }
         });
 
       } else {
-        Swal.fire('Error', 'Hubo un problema al guardar.', 'error');
+
+        Swal.fire('Error', 'Respuesta del servidor: ' + respuesta, 'error');
       }
     },
   });
 };
 
 var uno = async (id_libro) => {
-  await cargarAutores(); 
-  
+  await cargarAutores();
+
   $("#tituloModalLibro").html("Editar Libro");
   $.post(rutaLibros + "uno", { id_libro: id_libro }, (libro) => {
     libro = JSON.parse(libro);
     $("#id_libro").val(libro.id_libro);
     $("#titulo").val(libro.titulo);
     $("#isbn").val(libro.isbn);
-    $("#año").val(libro.año); 
-    $("#id_autor").val(libro.id_autor); 
+    $("#año").val(libro.año);
+    $("#id_autor").val(libro.id_autor);
   });
 };
 
@@ -108,7 +109,7 @@ var limpiarCajasLibro = () => {
   $("#id_libro").val("");
   $("#titulo").val("");
   $("#isbn").val("");
-  $("#año").val(""); 
+  $("#año").val("");
   $("#id_autor").val("0");
   $("#tituloModalLibro").html("Nuevo Libro");
   $("#ModalLibros").modal("hide");

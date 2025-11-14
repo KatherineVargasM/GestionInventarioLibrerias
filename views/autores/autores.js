@@ -1,12 +1,12 @@
 function init() {
   $("#form_autores").on("submit", (e) => {
-    guardarEditarAutor(e); 
+    guardarEditarAutor(e);
   });
 }
 const rutaAutores = "../../controllers/autores.controllers.php?op=";
 
-$().ready(() => {
-  cargaListaAutores(); 
+$(() => {
+  cargaListaAutores();
 });
 
 var cargaListaAutores = () => {
@@ -48,9 +48,9 @@ var guardarEditarAutor = (e) => {
     contentType: false,
     cache: false,
     success: (respuesta) => {
-      respuesta = JSON.parse(respuesta);
+      
 
-      if (respuesta == "ok") {
+      if (respuesta.includes("ok")) {
 
         Swal.fire({
           title: '¡Guardado!',
@@ -65,7 +65,8 @@ var guardarEditarAutor = (e) => {
         });
 
       } else {
-        Swal.fire('Error', 'Hubo un problema al guardar.', 'error');
+
+        Swal.fire('Error', 'Respuesta del servidor: ' + respuesta, 'error');
       }
     },
   });
@@ -76,7 +77,7 @@ var uno = (id_autor) => {
   $.post(rutaAutores + "uno", { id_autor: id_autor }, (autor) => {
     autor = JSON.parse(autor);
     $("#id_autor").val(autor.id_autor);
-    $("#nombre_apellido").val(autor.nombre_apellido); 
+    $("#nombre_apellido").val(autor.nombre_apellido);
     $("#nacionalidad").val(autor.nacionalidad);
   });
 };
@@ -94,12 +95,13 @@ var eliminar = (id_autor) => {
   }).then((result) => {
     if (result.isConfirmed) {
       $.post(rutaAutores + "eliminar", { id_autor: id_autor }, (respuesta) => {
-        respuesta = JSON.parse(respuesta);
-        if (respuesta == "ok") {
+        
+
+        if (respuesta.includes("ok")) {
           Swal.fire('¡Borrado!', 'El autor ha sido eliminado.', 'success');
-          cargaListaAutores(); 
+          cargaListaAutores();
         } else {
-          Swal.fire('Error', 'No se pudo eliminar.', 'error');
+          Swal.fire('Error', 'No se pudo eliminar: ' + respuesta, 'error');
         }
       });
     }
@@ -108,7 +110,7 @@ var eliminar = (id_autor) => {
 
 var limpiarCajasAutor = () => {
   $("#id_autor").val("");
-  $("#nombre_apellido").val(""); 
+  $("#nombre_apellido").val("");
   $("#nacionalidad").val("");
   $("#tituloModalAutor").html("Nuevo Autor");
   $("#ModalAutores").modal("hide");

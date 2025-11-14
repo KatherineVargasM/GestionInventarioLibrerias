@@ -3,23 +3,27 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/config/sesiones.p
 <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Librería /</span> Autores</h4>
 
 <div class="card">
-    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#ModalAutores">
-      Nuevo Autor
-    </button>
     <h5 class="card-header">Lista de Autores</h5>
-    <div class="table-responsive text-nowrap">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Nombre y Apellido</th> 
-                    <th>Nacionalidad</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody class="table-border-bottom-0" id="ListaAutores">
-            </tbody>
-        </table>
+    <div class="card-body">
+        
+        <button type"button" class="btn btn-outline-primary mb-3" data-bs-toggle="modal" data-bs-target="#ModalAutores">
+            Nuevo Autor
+        </button>
+
+        <div class="table-responsive text-nowrap">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre y Apellido</th> 
+                        <th>Nacionalidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0" id="ListaAutores">
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
@@ -36,11 +40,11 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/config/sesiones.p
                 <div class="modal-body">
                     <div class="form-group mb-3">
                         <label for="nombre_apellido">Nombre y Apellido</label> 
-                        <input type="text" name="nombre_apellido" id="nombre_apellido" class="form-control" placeholder="Ej: Jorge Luis Borges" required>
+                        <input type="text" name="nombre_apellido" id="nombre_apellido" class="form-control" placeholder=" " required>
                     </div>
                     <div class="form-group">
                         <label for="nacionalidad">Nacionalidad</label>
-                        <input type="text" name="nacionalidad" id="nacionalidad" class="form-control" placeholder="Ej: Argentino" required>
+                        <input type="text" name="nacionalidad" id="nacionalidad" class="form-control" placeholder=" " required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -52,5 +56,5 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/config/sesiones.p
     </div>
 </div>
 
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/views/html/scripts.php'); // Carga scripts.php ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/views/html/scripts.php'); ?>
 <script src="./autores.js"></script>
