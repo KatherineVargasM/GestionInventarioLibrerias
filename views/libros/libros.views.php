@@ -8,7 +8,12 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/views/html/head.p
     <h5 class="card-header">Lista de Libros</h5>
     <div class="card-body"> 
         
-        <button type="button" class="btn btn-outline-primary mb-3" onclick="cargarAutores();" data-bs-toggle="modal" data-bs-target="#ModalLibros">
+        <button type="button" 
+        class="btn btn-outline-primary mb-3" 
+        style="background-color: #008E8F; color: white; border: none;"
+        onclick="cargarAutores();" 
+        data-bs-toggle="modal" 
+        data-bs-target="#ModalLibros">
             Nuevo Libro
         </button>
         

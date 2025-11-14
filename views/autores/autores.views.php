@@ -8,7 +8,11 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/views/html/head.p
     <h5 class="card-header">Lista de Autores</h5>
     <div class="card-body">
         
-        <button type="button" class="btn btn-outline-primary mb-3" data-bs-toggle="modal" data-bs-target="#ModalAutores">
+        <button type="button" 
+                class="btn mb-3" 
+                style="background-color: #008E8F; color: white; border: none;"
+                data-bs-toggle="modal" 
+                data-bs-target="#ModalAutores">
             Nuevo Autor
         </button>
 
@@ -36,8 +40,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/views/html/head.p
                 <h5 class="modal-title" id="tituloModalAutor"></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            
-            <form id="form_autores" method="post">
+
+            <form id="form_autores" method="post" novalidate>
                 <input type="hidden" name="id_autor" id="id_autor">
                 <div class="modal-body">
                     <div class="form-group mb-3">

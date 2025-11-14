@@ -22,9 +22,9 @@ var cargaListaInventario = () => {
             <td>${item.stock}</td>
             <td>${item.ubicacion}</td>
             <td>
-              <button class='btn btn-sm btn-primary' data-bs-toggle="modal" data-bs-target="#ModalInventario" onclick='uno(${item.id_inventario})'>Editar Stock</button>
+               <button class='btn btn-sm btn-primary' style="background-color: #389C20 !important; color: white; border-color: #389C20 !important;" data-bs-toggle="modal" data-bs-target="#ModalInventario" onclick='uno(${item.id_inventario})'>Editar Stock</button>
             </td>
-          </tr>`;
+           </tr>`;
     });
     $("#ListaInventario").html(html);
   });

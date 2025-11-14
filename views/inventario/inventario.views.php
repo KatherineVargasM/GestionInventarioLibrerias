@@ -8,7 +8,12 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/views/html/head.p
     <h5 class="card-header">Stock de Libros</h5>
     <div class="card-body">
         
-        <button type="button" class="btn btn-outline-primary mb-3" onclick="cargarLibrosSinInv();" data-bs-toggle="modal" data-bs-target="#ModalInventario">
+        <button type="button" 
+        class="btn btn-outline-primary mb-3" 
+        style="background-color: #008E8F; color: white; border: none;"
+        onclick="cargarLibrosSinInv();" 
+        data-bs-toggle="modal" 
+        data-bs-target="#ModalInventario">
             Añadir Stock a Libro
         </button>
         

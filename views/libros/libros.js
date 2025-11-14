@@ -23,7 +23,7 @@ var cargaListaLibros = () => {
             <td>${libro.año}</td> 
             <td>${libro.autor_nombre}</td>
             <td>
-              <button class='btn btn-sm btn-primary' data-bs-toggle="modal" data-bs-target="#ModalLibros" onclick='uno(${libro.id_libro})'>Editar</button>
+            <button class='btn btn-sm' style="background-color: #389C20; color: white; border: none;" data-bs-toggle="modal" data-bs-target="#ModalLibros" onclick='uno(${libro.id_libro})'>Editar</button>
             </td>
           </tr>`;
     });

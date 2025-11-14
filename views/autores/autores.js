@@ -19,8 +19,11 @@ var cargaListaAutores = () => {
             <td>${autor.nombre_apellido}</td> 
             <td>${autor.nacionalidad}</td>
             <td>
-              <button class='btn btn-sm btn-primary' data-bs-toggle="modal" data-bs-target="#ModalAutores" onclick='uno(${autor.id_autor})'>Editar</button>
-              <button class='btn btn-sm btn-danger' onclick='eliminar(${autor.id_autor})'>Eliminar</button>
+              <!-- CAMBIO DE COLOR: Botón EDITAR (Nuevo Verde: #389C20) -->
+              <button class='btn btn-sm' style="background-color: #389C20; color: white; border: none;" data-bs-toggle="modal" data-bs-target="#ModalAutores" onclick='uno(${autor.id_autor})'>Editar</button>
+              
+              <!-- Color de ELIMINAR se mantiene: #008E8F -->
+              <button class='btn btn-sm' style="background-color: #008E8F; color: white; border: none;" onclick='eliminar(${autor.id_autor})'>Eliminar</button>
             </td>
           </tr>`;
     });
@@ -49,8 +52,10 @@ var guardarEditarAutor = (e) => {
     cache: false,
     success: (respuesta) => {
       
+
       if (respuesta.includes("ok")) {
-        limpiarCajasAutor();
+        
+        limpiarCajasAutor(); 
 
         Swal.fire({
           title: '¡Guardado!',
