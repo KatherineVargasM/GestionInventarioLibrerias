@@ -57,7 +57,7 @@ var guardarEditarLibro = (e) => {
         limpiarCajasLibro(); 
 
         Swal.fire({
-          title: '¡Guardado!',
+          title: 'Guardado',
           text: 'El libro se guardó con éxito.',
           icon: 'success',
           confirmButtonText: 'OK'

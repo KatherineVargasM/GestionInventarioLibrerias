@@ -1,7 +1,7 @@
 @charset "UTF-8";
 :root {
   --bs-blue: #007bff;
-  --bs-indigo: #6610f2;
+  --bs-indigo: #097a96;
   --bs-purple: #005A9F;
   --bs-pink: #e83e8c;
   --bs-red: #ff3e1d;
@@ -228,7 +228,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #5f61e6;
+  color: #0d6e9b;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {

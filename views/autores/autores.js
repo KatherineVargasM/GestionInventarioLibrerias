@@ -58,7 +58,7 @@ var guardarEditarAutor = (e) => {
         limpiarCajasAutor(); 
 
         Swal.fire({
-          title: '¡Guardado!',
+          title: 'Guardado',
           text: 'El autor se guardó con éxito.',
           icon: 'success',
           confirmButtonText: 'OK'
@@ -88,20 +88,20 @@ var uno = (id_autor) => {
 
 var eliminar = (id_autor) => {
   Swal.fire({
-    title: '¿Estás seguro?',
-    text: "No podrás revertir esto.",
+    title: '¿Deseas borrarlo?',
+    text: "No volverás a recuperarlo",
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'Sí, ¡borrar!',
+    confirmButtonText: 'Borrar',
     cancelButtonText: 'Cancelar'
   }).then((result) => {
     if (result.isConfirmed) {
       $.post(rutaAutores + "eliminar", { id_autor: id_autor }, (respuesta) => {
         
         if (respuesta.includes("ok")) {
-          Swal.fire('¡Borrado!', 'El autor ha sido eliminado.', 'success');
+          Swal.fire('Borrado', 'El autor ha sido eliminado.', 'success');
           cargaListaAutores();
         } else {
           Swal.fire('Error', 'No se pudo eliminar: ' + respuesta, 'error');

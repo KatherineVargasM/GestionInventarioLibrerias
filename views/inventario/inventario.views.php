@@ -49,7 +49,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/views/html/head.p
                 <div class="modal-body">
                 
                     <div id="divSelectLibro" class="form-group mb-3">
-                        <label for="id_libro">Libro (sin stock)</label>
+                        <label for="id_libro">Libro (nuevo sin stock)</label>
                         <select id="id_libro" name="id_libro" class="form-select" required>
                         </select>
                     </div>

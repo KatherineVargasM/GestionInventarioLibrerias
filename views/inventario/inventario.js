@@ -56,8 +56,8 @@ var guardarEditarInventario = (e) => {
         limpiarCajasInventario();
 
         Swal.fire({
-          title: '¡Guardado!',
-          text: 'El inventario se actualizó con éxito.',
+          title: 'Guardado',
+          text: 'El inventario se ha actualizado con éxito.',
           icon: 'success',
           confirmButtonText: 'OK'
         }).then((result) => {

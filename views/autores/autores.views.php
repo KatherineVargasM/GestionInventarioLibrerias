@@ -37,7 +37,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/views/html/head.p
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="tituloModalAutor"></h5>
+                <h5 class="modal-title" id="tituloModalAutor">Nuevo Autor</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -45,7 +45,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/views/html/head.p
                 <input type="hidden" name="id_autor" id="id_autor">
                 <div class="modal-body">
                     <div class="form-group mb-3">
-                        <label for="nombre_apellido">Nombre y Apellido</label> 
+                        <label for="nombre_apellido">Nombre / Apellido</label> 
                         <input type="text" name="nombre_apellido" id="nombre_apellido" class="form-control" placeholder=" " required>
                     </div>
                     <div class="form-group">

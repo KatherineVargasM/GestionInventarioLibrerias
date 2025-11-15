@@ -56,7 +56,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/inventario_libreria/views/html/head.p
                         <input type="text" name="isbn" id="isbn" class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="año">Año Publicación</label>
+                        <label for="año">Año de Publicación</label>
                         <input type="number" name="año" id="año" class="form-control" placeholder="Ej: 1967" required min="1000" max="2099">
                     </div>
                     <div class="form-group">
